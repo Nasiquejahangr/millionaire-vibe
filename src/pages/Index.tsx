@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import BalanceDisplay from '@/components/BalanceDisplay';
 import BalanceEditor from '@/components/BalanceEditor';
@@ -55,7 +54,6 @@ const ITEMS: Item[] = [
     icon: 'island',
     imageUrl: 'https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?auto=format&fit=crop&q=80&w=1000'
   },
-  // Adding new fantasy items
   { 
     id: 'time-machine', 
     name: 'Time Machine', 
@@ -97,6 +95,76 @@ const ITEMS: Item[] = [
     cost: 60_000_000, 
     icon: 'sparkles',
     imageUrl: 'https://images.unsplash.com/photo-1566438480900-0609be27a4be?auto=format&fit=crop&q=80&w=1000'
+  },
+  { 
+    id: 'hover-board', 
+    name: 'Hover Board', 
+    cost: 25_000_000, 
+    icon: 'skateboard',
+    imageUrl: 'https://images.unsplash.com/photo-1511367461989-f85a21fda167?auto=format&fit=crop&q=80&w=1000'
+  },
+  { 
+    id: 'personal-robot', 
+    name: 'Personal Robot Butler', 
+    cost: 95_000_000, 
+    icon: 'bot',
+    imageUrl: 'https://images.unsplash.com/photo-1487887235947-a955ef187fcc?auto=format&fit=crop&q=80&w=1000'
+  },
+  { 
+    id: 'teleportation-device', 
+    name: 'Teleportation Device', 
+    cost: 500_000_000, 
+    icon: 'zap',
+    imageUrl: 'https://images.unsplash.com/photo-1635776062127-d379bfcba9f8?auto=format&fit=crop&q=80&w=1000'
+  },
+  { 
+    id: 'eternal-youth', 
+    name: 'Eternal Youth Potion', 
+    cost: 950_000_000, 
+    icon: 'flask',
+    imageUrl: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&q=80&w=1000'
+  },
+  { 
+    id: 'brain-chip', 
+    name: 'Neural Interface Chip', 
+    cost: 300_000_000, 
+    icon: 'cpu',
+    imageUrl: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80&w=1000'
+  },
+  { 
+    id: 'flying-car', 
+    name: 'Flying Car', 
+    cost: 175_000_000, 
+    icon: 'plane-takeoff',
+    imageUrl: 'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&q=80&w=1000'
+  },
+  { 
+    id: 'underwater-city', 
+    name: 'Underwater City', 
+    cost: 650_000_000, 
+    icon: 'anchor',
+    imageUrl: 'https://images.unsplash.com/photo-1518877593221-1f28583780b4?auto=format&fit=crop&q=80&w=1000'
+  },
+  { 
+    id: 'moon-base', 
+    name: 'Moon Base', 
+    cost: 800_000_000, 
+    icon: 'moon',
+    imageUrl: 'https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?auto=format&fit=crop&q=80&w=1000'
+  },
+  { 
+    id: 'weather-control', 
+    name: 'Weather Control Device', 
+    cost: 400_000_000, 
+    icon: 'cloud-sun',
+    imageUrl: 'https://images.unsplash.com/photo-1592210454359-9043f067919b?auto=format&fit=crop&q=80&w=1000'
+  },
+  { 
+    id: 'lightsaber', 
+    name: 'Lightsaber', 
+    cost: 120_000_000, 
+    icon: 'sword',
+    imageUrl: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=1000'
   }
 ];
 
