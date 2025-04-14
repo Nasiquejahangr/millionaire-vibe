@@ -5,6 +5,8 @@ import BalanceEditor from '@/components/BalanceEditor';
 import ItemCard from '@/components/ItemCard';
 import PurchaseHistory from '@/components/PurchaseHistory';
 import AdBanner from '@/components/AdBanner';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 import { Item, Purchase } from '@/types/Item';
 import { toast } from 'sonner';
 
@@ -53,6 +55,49 @@ const ITEMS: Item[] = [
     icon: 'island',
     imageUrl: 'https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?auto=format&fit=crop&q=80&w=1000'
   },
+  // Adding new fantasy items
+  { 
+    id: 'time-machine', 
+    name: 'Time Machine', 
+    cost: 999_000_000, 
+    icon: 'clock',
+    imageUrl: 'https://images.unsplash.com/photo-1501139083538-0139583c060f?auto=format&fit=crop&q=80&w=1000'
+  },
+  { 
+    id: 'invisibility-cloak', 
+    name: 'Invisibility Cloak', 
+    cost: 80_000_000, 
+    icon: 'eye-off',
+    imageUrl: 'https://images.unsplash.com/photo-1534522877576-681c8e63d97e?auto=format&fit=crop&q=80&w=1000'
+  },
+  { 
+    id: 'dragons-egg', 
+    name: 'Dragon\'s Egg', 
+    cost: 450_000_000, 
+    icon: 'flame',
+    imageUrl: 'https://images.unsplash.com/photo-1577083552431-6e5fd05892bf?auto=format&fit=crop&q=80&w=1000'
+  },
+  { 
+    id: 'starship', 
+    name: 'Intergalactic Starship', 
+    cost: 850_000_000, 
+    icon: 'rocket',
+    imageUrl: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1000'
+  },
+  { 
+    id: 'superhero-suit', 
+    name: 'Superhero Suit', 
+    cost: 75_000_000, 
+    icon: 'shield',
+    imageUrl: 'https://images.unsplash.com/photo-1635805737707-575885ab0820?auto=format&fit=crop&q=80&w=1000'
+  },
+  { 
+    id: 'magical-wand', 
+    name: 'Magical Wand', 
+    cost: 60_000_000, 
+    icon: 'sparkles',
+    imageUrl: 'https://images.unsplash.com/photo-1566438480900-0609be27a4be?auto=format&fit=crop&q=80&w=1000'
+  }
 ];
 
 const Index: React.FC = () => {
@@ -86,37 +131,45 @@ const Index: React.FC = () => {
   };
 
   return (
-    <div className="container mx-auto p-4 min-h-screen bg-gradient-to-b from-blue-50 to-white">
-      <h1 className="text-4xl font-bold text-center mb-8 text-blue-900">💸 Spend Your Billions</h1>
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white flex flex-col">
+      <Header />
       
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-        <div className="lg:col-span-2">
-          <BalanceDisplay balance={balance} />
-        </div>
-        <div>
-          <BalanceEditor balance={balance} onBalanceChange={handleBalanceChange} />
-        </div>
-      </div>
-      
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-2">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-            {ITEMS.map(item => (
-              <ItemCard 
-                key={item.id} 
-                item={item} 
-                balance={balance} 
-                onPurchase={handlePurchase} 
-              />
-            ))}
+      <main className="container mx-auto px-4 flex-grow">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+          <div className="lg:col-span-2">
+            <BalanceDisplay balance={balance} />
+          </div>
+          <div>
+            <BalanceEditor balance={balance} onBalanceChange={handleBalanceChange} />
           </div>
         </div>
         
-        <div className="space-y-6">
-          <PurchaseHistory purchases={purchases} />
-          <AdBanner />
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="lg:col-span-2">
+            <div className="mb-6">
+              <AdBanner size="large" position="inline" />
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+              {ITEMS.map(item => (
+                <ItemCard 
+                  key={item.id} 
+                  item={item} 
+                  balance={balance} 
+                  onPurchase={handlePurchase} 
+                />
+              ))}
+            </div>
+          </div>
+          
+          <div className="space-y-6">
+            <PurchaseHistory purchases={purchases} />
+            <AdBanner size="small" position="sidebar" />
+            <AdBanner size="large" position="sidebar" />
+          </div>
         </div>
-      </div>
+      </main>
+      
+      <Footer />
     </div>
   );
 };
