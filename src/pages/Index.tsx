@@ -1,7 +1,10 @@
 
 import React, { useState } from 'react';
 import BalanceDisplay from '@/components/BalanceDisplay';
+import BalanceEditor from '@/components/BalanceEditor';
 import ItemCard from '@/components/ItemCard';
+import PurchaseHistory from '@/components/PurchaseHistory';
+import AdBanner from '@/components/AdBanner';
 import { Item, Purchase } from '@/types/Item';
 import { toast } from 'sonner';
 
@@ -77,21 +80,42 @@ const Index: React.FC = () => {
     }
   };
 
+  const handleBalanceChange = (newBalance: number) => {
+    setBalance(newBalance);
+    toast.info(`Balance updated to $${newBalance.toLocaleString()}`);
+  };
+
   return (
     <div className="container mx-auto p-4 min-h-screen bg-gradient-to-b from-blue-50 to-white">
       <h1 className="text-4xl font-bold text-center mb-8 text-blue-900">💸 Spend Your Billions</h1>
       
-      <BalanceDisplay balance={balance} />
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+        <div className="lg:col-span-2">
+          <BalanceDisplay balance={balance} />
+        </div>
+        <div>
+          <BalanceEditor balance={balance} onBalanceChange={handleBalanceChange} />
+        </div>
+      </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-        {ITEMS.map(item => (
-          <ItemCard 
-            key={item.id} 
-            item={item} 
-            balance={balance} 
-            onPurchase={handlePurchase} 
-          />
-        ))}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="lg:col-span-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+            {ITEMS.map(item => (
+              <ItemCard 
+                key={item.id} 
+                item={item} 
+                balance={balance} 
+                onPurchase={handlePurchase} 
+              />
+            ))}
+          </div>
+        </div>
+        
+        <div className="space-y-6">
+          <PurchaseHistory purchases={purchases} />
+          <AdBanner />
+        </div>
       </div>
     </div>
   );
