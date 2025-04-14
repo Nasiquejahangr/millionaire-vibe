@@ -4,6 +4,7 @@ export interface Item {
   name: string;
   cost: number;
   icon?: string;
+  imageUrl: string;
 }
 
 export interface Purchase {
